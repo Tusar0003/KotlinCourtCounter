@@ -25,7 +25,15 @@ class TitleFragment : Fragment() {
             R.layout.fragment_title, container, false)
 
         binding.buttonStart.setOnClickListener {
-            findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+            /**
+             * Before adding safe args
+             */
+//            findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
+
+            /**
+             * After adding safe args
+             */
+            findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
         }
 
         return binding.root

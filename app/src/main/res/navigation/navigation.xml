@@ -4,7 +4,14 @@
             android:id="@+id/navigation" app:startDestination="@id/titleFragment">
 
     <fragment android:id="@+id/gameFragment" android:name="com.example.kotlincourtcounter.fragment.GameFragment"
-              android:label="fragment_game" tools:layout="@layout/fragment_game"/>
+              android:label="fragment_game" tools:layout="@layout/fragment_game">
+        <action
+            android:id="@+id/action_gameFragment_to_scoreFragment"
+            app:destination="@id/scoreFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/titleFragment" />
+    </fragment>
     <fragment
         android:id="@+id/titleFragment"
         android:name="com.example.kotlincourtcounter.fragment.TitleFragment"
@@ -13,5 +20,23 @@
         <action android:id="@+id/action_titleFragment_to_gameFragment" app:destination="@id/gameFragment"
                 app:enterAnim="@anim/nav_default_enter_anim" app:exitAnim="@anim/nav_default_exit_anim"
                 app:popEnterAnim="@anim/nav_default_pop_enter_anim" app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+    </fragment>
+    <fragment
+        android:id="@+id/scoreFragment"
+        android:name="com.example.kotlincourtcounter.fragment.ScoreFragment"
+        android:label="fragment_score"
+        tools:layout="@layout/fragment_score" >
+        <action
+            android:id="@+id/action_scoreFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"
+            app:popUpTo="@+id/titleFragment" />
+        <argument
+            android:name="teamAScore"
+            app:argType="integer" />
+        <argument
+            android:name="teamBScore"
+            app:argType="integer" />
     </fragment>
 </navigation>
